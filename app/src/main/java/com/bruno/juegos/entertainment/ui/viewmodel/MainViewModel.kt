@@ -20,10 +20,24 @@ class MainViewModel @ViewModelInject constructor(
     val amount: MutableLiveData<String> = MutableLiveData()
     var results : Results? = null
 
+
+//    fun onCheckedChange(button: CompoundButton?, check: Boolean) {
+//        Questions.FIRTQUESTIONS
+//    }
+
     fun showResultAddNumberUser(view: View) {
      Keyboard.hide(view)
         Navigation.findNavController(view).navigate(R.id.action_settingFragment_to_gameFragment)
     }
+
+//    fun onCheckedChange(button: CompoundButton?, check: Boolean) {
+//        Questions.FIRTQUESTIONS
+//    }
+
+    //    fun getToyBeingModified(): getDataBindin? {
+//        return getDataBindin
+//    }
+
 
     fun showInputData(v: View, p: Results?) {
         results = p

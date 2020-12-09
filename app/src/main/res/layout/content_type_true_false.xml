@@ -15,13 +15,13 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:padding="8dp">
 
             <RadioGroup
                 android:id="@+id/rgquestions"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -34,37 +34,37 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/question_vertical_margin"
                     android:checked="true"
-                    android:text="@{game.answers[0]}"
+
                     android:textSize="@dimen/answer_text_size"
                     tools:text="Blue" />
-
+                <!--                android:text="@{game.answers[0]}"-->
                 <RadioButton
                     android:id="@+id/secondAnswerRadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/question_vertical_margin"
-                    android:text="@{game.answers[1]}"
+
                     android:textSize="@dimen/answer_text_size"
                     tools:text="Green" />
-
+                <!--                android:text="@{game.answers[1]}"-->
                 <RadioButton
                     android:id="@+id/thirdAnswerRadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/question_vertical_margin"
-                    android:text="@{game.answers[2]}"
+
                     android:textSize="@dimen/answer_text_size"
                     tools:text="Yellow" />
-
+                <!--                android:text="@{game.answers[2]}"-->
                 <RadioButton
                     android:id="@+id/fourthAnswerRadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{game.answers[3]}"
+
                     android:textSize="@dimen/answer_text_size"
                     tools:text="Red" />
             </RadioGroup>
-
+            <!--            android:text="@{game.answers[3]}"-->
             <TextView
                 android:id="@+id/tv_category"
                 android:layout_width="0dp"
@@ -99,7 +99,9 @@
                 android:id="@+id/tv_question"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
                 android:text="@{result.question}"
+                app:layout_constraintBottom_toTopOf="@+id/rgquestions"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"

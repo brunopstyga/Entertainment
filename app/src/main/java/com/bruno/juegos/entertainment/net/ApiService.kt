@@ -9,5 +9,5 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("/api.php")
-    suspend fun getData(@Query("amount") amount: String?): List<Response>
+    suspend fun getData(@Query("amount") amount: String?): Response
 }

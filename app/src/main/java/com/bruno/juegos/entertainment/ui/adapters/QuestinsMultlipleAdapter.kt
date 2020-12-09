@@ -10,7 +10,7 @@ import com.bruno.juegos.entertainment.model.Results
 
 class QuestinsMultlipleAdapter(
     val result: List<Results>,
-    val onClickListener: View.OnClickListener
+//    val onClickListener: View.OnClickListener
 ) :
     RecyclerView.Adapter<QuestinsMultlipleAdapter.ViewHolder>() {
 
@@ -22,7 +22,7 @@ class QuestinsMultlipleAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ContentTypeMultipleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        binding.categoryItemCard.setOnClickListener(onClickListener)
+//        binding.categoryItemCard.setOnClickListener(onClickListener)
         return ViewHolder(binding)
     }
 

@@ -1,5 +1,6 @@
 package com.bruno.juegos.entertainment.ui.fragment
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bruno.juegos.entertainment.R
 import com.bruno.juegos.entertainment.databinding.FragmentGameBinding
+import com.bruno.juegos.entertainment.model.ResultApi
 import com.bruno.juegos.entertainment.model.Results
 import com.bruno.juegos.entertainment.ui.adapters.QuestinsMultlipleAdapter
 import com.bruno.juegos.entertainment.ui.viewmodel.MainViewModel
@@ -23,11 +25,13 @@ class GameFragment : Fragment() {
     lateinit var binding: FragmentGameBinding
     lateinit var answers: MutableList<String>
     private var questionIndex = 0
+    lateinit var questionsList: List<List<String>>
     val results = ArrayList<Results>()
     val questions = ArrayList<String>()
-    val questionsMultipleAdapter = QuestinsMultlipleAdapter(results) { v ->
-//        viewModel.showInputData(v, payersCost.find { it.installments.toString() == v.tag.toString() })
-    }
+    val questionsMultipleAdapter = QuestinsMultlipleAdapter(results)
+//    { v ->
+////        viewModel.showInputData(v, payersCost.find { it.installments.toString() == v.tag.toString() })
+//    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,5 +53,37 @@ class GameFragment : Fragment() {
         }
         return binding.root
     }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel.getData().observe(viewLifecycleOwner){
+            when(it){
+                is ResultApi.Success -> {
+                    results.apply {
+                        binding.questionsLoading.visibility = View.GONE
+//                        clear()
+                        addAll(it.data.results)
+                        questionsList = getWronAnswers(it.data.results as ArrayList<Results>)
+                    }
+                    questionsMultipleAdapter.notifyDataSetChanged()
+                }
+                is ResultApi.Error -> {
+                    AlertDialog.Builder(context)
+                            .setTitle("ERROR")
+                            .setMessage("Intente más tarde")
+                            .setNeutralButton("Cerrar") { _, _ ->
+//                                viewModel.backToHome(requireView())
+                            }
+                            .show()
+                }
+            }
+        }
 
+    }
+
+    fun getWronAnswers(df : ArrayList<Results>) : List<List<String>> {
+        return df.map {
+            it.incorrectAnswers
+        }
+
+    }
 }
