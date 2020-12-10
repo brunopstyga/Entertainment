@@ -93,11 +93,7 @@ class QuestinsMultlipleAdapter(
 
         }
     }
-companion object{
-    fun loco(){
 
-    }
-}
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ContentTypeLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)

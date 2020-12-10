@@ -73,10 +73,4 @@ class GameFragment : Fragment() {
 
     }
 
-//    fun getWronAnswers(df : ArrayList<Results>) : List<List<String>> {
-//        return df.map {
-//            it.incorrectAnswers
-//        }
-//
-//    }
 }

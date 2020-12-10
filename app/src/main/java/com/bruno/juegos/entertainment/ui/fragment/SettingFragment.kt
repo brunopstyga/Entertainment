@@ -36,21 +36,4 @@ class SettingFragment : Fragment() {
         return binding.root
     }
 
-//    override fun onActivityCreated(savedInstanceState: Bundle?) {
-//        super.onActivityCreated(savedInstanceState)
-//        viewModel.getData().observe(viewLifecycleOwner){
-//            when(it){
-//                is ResultApi.Success -> {
-//
-//                }
-//                is ResultApi.Error  -> {
-//
-//                }
-//
-//            }
-//        }
-//
-//    }
-
-
 }
