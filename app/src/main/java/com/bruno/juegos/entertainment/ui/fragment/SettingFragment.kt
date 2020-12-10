@@ -33,25 +33,24 @@ class SettingFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_setting, container, false)
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
-//        binding.amountValue.addTextChangedListener(MaskWatcher(binding.amountValue))
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel.getData().observe(viewLifecycleOwner){
-            when(it){
-                is ResultApi.Success -> {
-
-                }
-                is ResultApi.Error  -> {
-
-                }
-
-            }
-        }
-
-    }
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//        viewModel.getData().observe(viewLifecycleOwner){
+//            when(it){
+//                is ResultApi.Success -> {
+//
+//                }
+//                is ResultApi.Error  -> {
+//
+//                }
+//
+//            }
+//        }
+//
+//    }
 
 
 }

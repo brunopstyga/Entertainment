@@ -20,5 +20,4 @@ class ApiRepositories @Inject constructor(
         }
     }
 
-
 }

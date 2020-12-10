@@ -1,6 +1,7 @@
 package com.bruno.juegos.entertainment.ui.fragment
 
 import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,15 +24,9 @@ class GameFragment : Fragment() {
 
     val viewModel by activityViewModels<MainViewModel>()
     lateinit var binding: FragmentGameBinding
-    lateinit var answers: MutableList<String>
-    private var questionIndex = 0
-    lateinit var questionsList: List<List<String>>
     val results = ArrayList<Results>()
-    val questions = ArrayList<String>()
     val questionsMultipleAdapter = QuestinsMultlipleAdapter(results)
-//    { v ->
-////        viewModel.showInputData(v, payersCost.find { it.installments.toString() == v.tag.toString() })
-//    }
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,7 +57,6 @@ class GameFragment : Fragment() {
                         binding.questionsLoading.visibility = View.GONE
 //                        clear()
                         addAll(it.data.results)
-                        questionsList = getWronAnswers(it.data.results as ArrayList<Results>)
                     }
                     questionsMultipleAdapter.notifyDataSetChanged()
                 }
@@ -71,7 +65,6 @@ class GameFragment : Fragment() {
                             .setTitle("ERROR")
                             .setMessage("Intente más tarde")
                             .setNeutralButton("Cerrar") { _, _ ->
-//                                viewModel.backToHome(requireView())
                             }
                             .show()
                 }
@@ -80,10 +73,10 @@ class GameFragment : Fragment() {
 
     }
 
-    fun getWronAnswers(df : ArrayList<Results>) : List<List<String>> {
-        return df.map {
-            it.incorrectAnswers
-        }
-
-    }
+//    fun getWronAnswers(df : ArrayList<Results>) : List<List<String>> {
+//        return df.map {
+//            it.incorrectAnswers
+//        }
+//
+//    }
 }

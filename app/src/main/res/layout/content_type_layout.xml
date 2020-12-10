@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/item_card"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,82 +18,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:padding="8dp">
-
-            <RadioGroup
-                android:id="@+id/rgquestions"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_question">
-
-                <RadioButton
-                    android:id="@+id/firstAnswerRadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/question_vertical_margin"
-                    android:checked="true"
-
-                    android:textSize="@dimen/answer_text_size"
-                    tools:text="Blue" />
-                <!--                android:text="@{game.answers[0]}"-->
-                <RadioButton
-                    android:id="@+id/secondAnswerRadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/question_vertical_margin"
-
-                    android:textSize="@dimen/answer_text_size"
-                    tools:text="Green" />
-                <!--                android:text="@{game.answers[1]}"-->
-                <RadioButton
-                    android:id="@+id/thirdAnswerRadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/question_vertical_margin"
-
-                    android:textSize="@dimen/answer_text_size"
-                    tools:text="Yellow" />
-                <!--                android:text="@{game.answers[2]}"-->
-                <RadioButton
-                    android:id="@+id/fourthAnswerRadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:textSize="@dimen/answer_text_size"
-                    tools:text="Red" />
-            </RadioGroup>
-            <!--            android:text="@{game.answers[3]}"-->
-            <TextView
-                android:id="@+id/tv_category"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@{result.category}"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@{result.type}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_category" />
-
-            <TextView
-                android:id="@+id/tv_difficulty"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@{result.difficulty}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_type" />
 
             <TextView
                 android:id="@+id/tv_question"
@@ -104,8 +28,76 @@
                 app:layout_constraintBottom_toTopOf="@+id/rgquestions"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_category"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="@{result.category}"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_question"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_difficulty" />
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/rgquestions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <RadioButton
+                    android:id="@+id/firstAnswerRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/question_vertical_margin"
+                    android:checked="true"
+                    android:textSize="@dimen/answer_text_size"
+                    tools:text="Blue" />
+
+                <RadioButton
+                    android:id="@+id/secondAnswerRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/question_vertical_margin"
+                    android:textSize="@dimen/answer_text_size"
+                    tools:text="Green" />
+
+                <RadioButton
+                    android:id="@+id/thirdAnswerRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/question_vertical_margin"
+                    android:textSize="@dimen/answer_text_size"
+                    tools:text="Yellow" />
+
+                <RadioButton
+                    android:id="@+id/fourthAnswerRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/answer_text_size"
+                    tools:text="Red" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <Button
+                    android:id="@+id/submitButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button" />
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
