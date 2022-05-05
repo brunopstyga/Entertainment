@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.bruno.juegos.entertainment.databinding.ContentTypeLayoutBinding
+import com.bruno.juegos.entertainment.databinding.QuestionsChoiseBinding
 import com.bruno.juegos.entertainment.model.Results
 
 class QuestinsMultlipleAdapter(
@@ -14,7 +14,7 @@ class QuestinsMultlipleAdapter(
 ) :
     RecyclerView.Adapter<QuestinsMultlipleAdapter.ViewHolder>() {
 
-    class ViewHolder(val bind: ContentTypeLayoutBinding) : RecyclerView.ViewHolder(bind.root) {
+    class ViewHolder(val bind: QuestionsChoiseBinding) : RecyclerView.ViewHolder(bind.root) {
         fun bind(results: Results) {
             bind.result = results
 
@@ -95,7 +95,7 @@ class QuestinsMultlipleAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ContentTypeLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = QuestionsChoiseBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

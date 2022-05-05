@@ -14,6 +14,7 @@ import com.bruno.juegos.entertainment.R
 import com.bruno.juegos.entertainment.databinding.FragmentGameBinding
 import com.bruno.juegos.entertainment.model.ResultApi
 import com.bruno.juegos.entertainment.model.Results
+import com.bruno.juegos.entertainment.ui.adapters.CategoryAdapter
 import com.bruno.juegos.entertainment.ui.adapters.QuestinsMultlipleAdapter
 import com.bruno.juegos.entertainment.ui.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,7 +26,8 @@ class GameFragment : Fragment() {
     val viewModel by activityViewModels<MainViewModel>()
     lateinit var binding: FragmentGameBinding
     val results = ArrayList<Results>()
-    val questionsMultipleAdapter = QuestinsMultlipleAdapter(results)
+    val categoryAdapter = CategoryAdapter(results)
+//    val questionsMultipleAdapter = QuestinsMultlipleAdapter(results)
 
 
 
@@ -43,7 +45,7 @@ class GameFragment : Fragment() {
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
         binding.questionsList.apply {
-            adapter = questionsMultipleAdapter
+            adapter = categoryAdapter
             layoutManager = LinearLayoutManager(context)
         }
         return binding.root
@@ -58,7 +60,7 @@ class GameFragment : Fragment() {
 //                        clear()
                         addAll(it.data.results)
                     }
-                    questionsMultipleAdapter.notifyDataSetChanged()
+                    categoryAdapter.notifyDataSetChanged()
                 }
                 is ResultApi.Error -> {
                     AlertDialog.Builder(context)
@@ -72,5 +74,8 @@ class GameFragment : Fragment() {
         }
 
     }
+
+
+
 
 }

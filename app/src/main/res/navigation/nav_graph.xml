@@ -18,5 +18,13 @@
         android:id="@+id/gameFragment"
         android:name="com.bruno.juegos.entertainment.ui.fragment.GameFragment"
         android:label="fragment_game"
-        tools:layout="@layout/fragment_game" />
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_questionsChoise"
+            app:destination="@id/questionsChoise" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionsChoise"
+        android:name="com.bruno.juegos.entertainment.ui.fragment.QuestionsChoise"
+        android:label="QuestionsChoise" />
 </navigation>
