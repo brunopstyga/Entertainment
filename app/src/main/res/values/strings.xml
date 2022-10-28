@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_title">Enter the number of times you want to play</string>
     <string name="button">SEND</string>
+    <string name="splash_successfull_retry">Correcta</string>
+    <string name="splash_error_retry">INCORRECTA</string>
 </resources>

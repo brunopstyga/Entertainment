@@ -15,22 +15,22 @@ class CategoryAdapter(val result: List<Results>,
         fun bind(results: Results) {
             binding.result = results
             binding.cardViewClick.setOnClickListener(View.OnClickListener {
-             results.category
+                results.category
             })
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-       val binding = CategoryListBinding.inflate(
-           LayoutInflater.from(parent.context),
-           parent,
-           false)
+        val binding = CategoryListBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false)
 
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-         holder.bind(result[position])
+        holder.bind(result[position])
     }
 
     override fun getItemCount(): Int = result.size
